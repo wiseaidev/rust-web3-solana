@@ -3,14 +3,14 @@
 ## Table of Contents
 
 * [**Introduction**](#introduction)
-    * [**1. Keys 🔑**](#1.-keys-🔑)
-    * [**2. Wallets 💰**](#2.-wallets-💰)
-    * [**3. Accounts 🤐**](#3.-accounts-🤐)
-    * [**4. Smart Contracts 🤖**](#4.-smart-contracts-🤖)
-    * [**5. Instructions & Transactions 📜**](#5.-instructions-&-transactions-📜)
-    * [**6. Solana Architecture 🌐**](#6.-solana-architecture-🌐)
-    * [**7. JSON RPC 🗣️**](#7.-json-rpc-🗣️)
-    * [**8. POH 🤝**](#8.-poh-🤝)
+    * [**1. Keys 🔑**](#1-keys-)
+    * [**2. Wallets 💰**](#2-wallets-)
+    * [**3. Accounts 🤐**](#3-accounts-)
+    * [**4. Smart Contracts 🤖**](#4-smart-contracts-)
+    * [**5. Instructions & Transactions 📜**](#5-instructions-&-transactions-)
+    * [**6. Solana Architecture 🌐**](#6-solana-architecture-)
+    * [**7. JSON RPC 🗣️**](#7-json-rpc-)
+    * [**8. POH 🤝**](#8-poh-)
 * [**Conclusion**](#conclusion)
 
 ## Introduction
