@@ -321,7 +321,7 @@ Let's consider a clear visual representation of how order IDs are generated for 
    +---------------------+------+
                      |
                      v
-2. Shift Limit Price Left by 4 Bits
+2. Shift Limit Price Left by 5 Bits
    +---+---+---+---+---+---+---+---+
    | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
    +---+---+---+---+---+---+---+---+
@@ -335,10 +335,10 @@ Let's consider a clear visual representation of how order IDs are generated for 
                      |
                      v
 4. Combine Limit Price with Bitwise NOT of Sequence Number
-   +---+---+---+---+---+---+---+---+---+---+---+---+---+
-   | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 0 |
-   +---+---+---+---+---+---+---+---+---+---+---+---+---+
-   Order ID: [1][0][1][0][0][0][0][0][0][1][1][0][0]
+   +---+---+---+---+---+---+---+---+---+
+   | 1 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | 0 |
+   +---+---+---+---+---+---+---+---+---+
+   Order ID: [1][0][1][0][0][1][1][0][0]
 ```
 
 The `gen_order_id` function, along with related mechanisms in OpenBook v1, provides a robust framework for order ID generation and management. By leveraging bitwise operations and a well-structured approach to sequence numbers, this system ensures efficient and reliable order processing. This methodology not only supports high throughput but also maintains the integrity and accuracy of the order book, essential for a decentralized exchange's successful operation.
