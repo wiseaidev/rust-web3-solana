@@ -58,7 +58,7 @@ To start, let's explore the Crit-Bit tree data structure.
 
 ### 1. Crit-Bit Trees 🌲
 
-[The **Critbit** module](https://github.com/openbook-dex/program/blob/master/dex/src/critbit.rs) in OpenBook v1 implements a **CritBit Tree**, short for ["Critical Bit Tree"](http://cr.yp.to/critbit.html). This type of tree structure excels in storing key-value pairs where keys are Strings and can be compared bitwise (like IP addresses or cryptographic hashes), making it particularly suitable for applications requiring fast prefix-based searches and updates[^2]. The primary components of Critbit include **Inner Nodes**, **Leaf Nodes**, and **Free Nodes**, each serving a different role in the organization and operation of the data structure.
+[The **Critbit** module](https://github.com/openbook-dex/program/blob/master/dex/src/critbit.rs) in OpenBook v1 implements a **CritBit Tree**, short for ["Critical Bit Tree"](http://cr.yp.to/critbit.html). This type of tree structure excels in storing key-value pairs where keys are Strings and can be compared bitwise (like IP addresses or cryptographic hashes), making it particularly suitable for applications requiring fast prefix-based searches and updates [^2]. The primary components of Critbit include **Inner Nodes**, **Leaf Nodes**, and **Free Nodes**, each serving a different role in the organization and operation of the data structure.
 
 **Node Representation**: 
 ```rust
@@ -110,7 +110,7 @@ struct LeafNode {
 
 **Reference**: [openbook-dex/program](https://github.com/openbook-dex/program/blob/c85e56deeaead43abbc33b7301058838b9c5136d/dex/src/critbit.rs#L16)
 
-The **Inner Node** in Critbit contains metadata about the binary prefix length it handles, the key it represents, and pointers to its child nodes. This metadata allows efficient traversal of the tree based on the bits of the search key, ensuring quick lookup times even with large datasets[^3]. On the other hand, **Leaf Nodes** store actual data entries, such as the order itself. These nodes hold specific information important to the decentralized exchange operations, including the owner details, quantities, and client order IDs[^4].
+The **Inner Node** in Critbit contains metadata about the binary prefix length it handles, the key it represents, and pointers to its child nodes. This metadata allows efficient traversal of the tree based on the bits of the search key, ensuring quick lookup times even with large datasets [^3]. On the other hand, **Leaf Nodes** store actual data entries, such as the order itself. These nodes hold specific information important to the decentralized exchange operations, including the owner details, quantities, and client order IDs [^4].
 
 ```rust
 struct FreeNode {
@@ -125,7 +125,7 @@ struct FreeNode {
 
 **Reference**: [openbook-dex/program](https://github.com/openbook-dex/program/blob/c85e56deeaead43abbc33b7301058838b9c5136d/dex/src/critbit.rs#L130)
 
-Complementing these are **Free Nodes**, which manage memory reclamation and recycling within the tree structure. These nodes keep track of available memory slots, ensuring efficient space utilization and allocation as nodes are inserted, updated, or removed from the tree[^5].
+Complementing these are **Free Nodes**, which manage memory reclamation and recycling within the tree structure. These nodes keep track of available memory slots, ensuring efficient space utilization and allocation as nodes are inserted, updated, or removed from the tree [^5].
 
 The overall design of Critbit in OpenBook v1 revolves around optimizing memory usage, facilitating fast data access, and ensuring scalability as the decentralized exchange platform grows.
 
@@ -471,15 +471,15 @@ Find Max
 
 In this chapter, we have explored the detailed implementation and workings of the crit-bit tree in OpenBook V1. From node structures to operations, each aspect contributes to an efficient and robust crit-bit tree implementation suitable for various applications requiring fast key lookups and efficient memory usage.
 
-[^1]: More about the CritBit tree structure: [CritBit Tree](https://en.wikipedia.org/wiki/Radix_tree)
+ [^1]: More about the CritBit tree structure: [CritBit Tree](https://en.wikipedia.org/wiki/Radix_tree)
 
-[^2]: Binary key comparisons efficiency: [Binary Search Trees](https://en.wikipedia.org/wiki/Binary_search_tree)
+ [^2]: Binary key comparisons efficiency: [Binary Search Trees](https://en.wikipedia.org/wiki/Binary_search_tree)
 
-[^3]: Optimization techniques for tree traversal: [Tree Traversal](https://en.wikipedia.org/wiki/Tree_traversal)
+ [^3]: Optimization techniques for tree traversal: [Tree Traversal](https://en.wikipedia.org/wiki/Tree_traversal)
 
-[^4]: More about Tree data structure terminology such as Leaf Nodes: [Leaf Nodes](https://en.wikipedia.org/wiki/Tree_(data_structure)#Terminology)
+ [^4]: More about Tree data structure terminology such as Leaf Nodes: [Leaf Nodes](https://en.wikipedia.org/wiki/Tree_(data_structure)#Terminology)
 
-[^5]: Memory management in tree structures: [Trees in Memory Management](https://en.wikipedia.org/wiki/Memory_management#Buddy_blocks)
+ [^5]: Memory management in tree structures: [Trees in Memory Management](https://en.wikipedia.org/wiki/Memory_management#Buddy_blocks)
 
 ---
 ---
