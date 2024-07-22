@@ -15,8 +15,8 @@ declare_id!("EPUMSZYPAKa11SvtGhD6izCNECRkS1gPNkAHsN7HnUkZ");
 pub mod my_program {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        initialize::handler(ctx)
+    pub fn initialize(ctx: Context<Initialize>, amount: u64) -> Result<()> {
+        initialize::handler(ctx, amount)
     }
 
     pub fn transfer(ctx: Context<Transfer>, amount: u64) -> Result<()> {

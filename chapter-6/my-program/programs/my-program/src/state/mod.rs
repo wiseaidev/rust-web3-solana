@@ -23,6 +23,8 @@ pub struct Initialize<'info> {
         init,
         payer = authority,
         space = 8 + std::mem::size_of::<MyAccount>(),
+        seeds = [b"my_account", authority.key().as_ref()],
+        bump
     )]
     pub my_account: Box<Account<'info, MyAccount>>,
 

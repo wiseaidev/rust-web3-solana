@@ -1,7 +1,9 @@
 use anchor_client::{
     solana_sdk::{
         commitment_config::CommitmentConfig,
+        pubkey::Pubkey,
         signature::{read_keypair_file, Keypair, Signer},
+        system_program,
     },
     Client, Cluster, Program,
 };
@@ -28,16 +30,19 @@ fn setup_program() -> (Client<Arc<Keypair>>, Program<Arc<Keypair>>, Keypair) {
 fn test_initialize_account() {
     let (_client, program, authority) = setup_program();
 
-    let account = Keypair::new();
+    let (user_account, _bump) = Pubkey::find_program_address(
+        &[b"my_account", authority.pubkey().as_ref()],
+        &my_program::id(),
+    );
 
     let tx = program
         .request()
         .accounts(Initialize {
             authority: authority.pubkey(),
-            my_account: account.pubkey(),
-            system_program: my_program::id(),
+            my_account: user_account,
+            system_program: system_program::id(),
         })
-        .signer(&authority)
+        .args(instruction::Initialize { amount: 10 })
         .send()
         .expect("Failed to send initialize account transaction");
 
@@ -48,43 +53,70 @@ fn test_initialize_account() {
 fn test_transfer_account() {
     let (_client, program, authority) = setup_program();
 
-    let from_account = Keypair::new();
-    let to_account = Keypair::new();
+    let (user_account, _bump) = Pubkey::find_program_address(
+        &[b"my_account", authority.pubkey().as_ref()],
+        &my_program::id(),
+    );
 
-    // Initialize 'from' account
-    let _tx_init_from = program
+    let _tx = program
         .request()
         .accounts(Initialize {
             authority: authority.pubkey(),
-            my_account: from_account.pubkey(),
-            system_program: my_program::id(),
+            my_account: user_account,
+            system_program: system_program::id(),
         })
-        .signer(&authority)
+        .args(instruction::Initialize { amount: 10 })
         .send()
-        .expect("Failed to send initialize 'from' account transaction");
-
-    // Initialize 'to' account
-    let _tx_init_to = program
-        .request()
-        .accounts(Initialize {
-            authority: authority.pubkey(),
-            my_account: to_account.pubkey(),
-            system_program: my_program::id(),
-        })
-        .signer(&authority)
-        .send()
-        .expect("Failed to send initialize 'to' account transaction");
+        .expect("Failed to send initialize account transaction");
 
     // Perform transfer
     let tx = program
         .request()
         .accounts(Transfer {
             authority: authority.pubkey(),
-            from: from_account.pubkey(),
-            to: to_account.pubkey(),
-            system_program: my_program::id(),
+            from: user_account,
+            to: user_account,
+            system_program: system_program::id(),
         })
-        // .args(instruction::Transfer { amount: 1 })
+        .args(instruction::Transfer { amount: 1 })
+        .signer(&authority)
+        .send()
+        .expect("Failed to send transfer transaction");
+
+    println!("Transfer transaction signature: {}", tx);
+}
+
+#[test]
+#[should_panic]
+fn test_transfer_invalid() {
+    let (_client, program, authority) = setup_program();
+
+    let (user_account, _bump) = Pubkey::find_program_address(
+        &[b"my_account", authority.pubkey().as_ref()],
+        &my_program::id(),
+    );
+
+    let _tx = program
+        .request()
+        .accounts(Initialize {
+            authority: authority.pubkey(),
+            my_account: user_account,
+            system_program: system_program::id(),
+        })
+        .args(instruction::Initialize { amount: 0 })
+        .send()
+        .expect("Failed to send initialize account transaction");
+
+    // Perform transfer
+    let tx = program
+        .request()
+        .accounts(Transfer {
+            authority: authority.pubkey(),
+            from: user_account,
+            to: user_account,
+            system_program: system_program::id(),
+        })
+        .args(instruction::Transfer { amount: 1 })
         .signer(&authority)
         .send()
         .expect("Failed to send transfer transaction");
