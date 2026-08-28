@@ -1,5 +1,25 @@
 # 📚 Rust Web3 Solana
 
+> [!WARNING]
+>
+> ## 🚨 This Repository Has Been Archived
+>
+> **TL;DR:** I got scammed. Solana enabled the scams. Blockchains are obsolete. Please carry on.
+>
+> This project has been **archived** and is no longer maintained.
+>
+> Over the years, the Solana ecosystem became a thriving petri dish for some of the most creative financial fraud the internet has ever produced. Without fully realizing it, I was gradually recruited into contributing to several projects that turned out to be outright scams: only discovering the truth long after the damage was done. By the time the red flags were visible, the rugpull had already been pulled.
+>
+> Beyond the scams, I've come to the conclusion that **I'm simply not interested in Solana-based blockchain development anymore**, or in blockchains in general, really.
+>
+> Think about it: in 2026, if you want truly immutable, cryptographically verifiable data streams, you can just... run a backend powered by an LLM, stream the data in real time, and hash the outputs. Done. No gas fees. No validators. No "proof of history." No waiting for finality. No ecosystem of anonymous founders with a Lambo and a whitepaper. The core value proposition of a blockchain, *trust without a central authority*, can be approximated far more cheaply with modern infrastructure. **Using a blockchain in 2026 is like insisting on a fax machine because you don't trust email.**
+>
+> Studies (conducted entirely in my head) suggest that watching **Hanyu Arisa** JAV videos provides more measurable intellectual stimulation, emotional fulfillment, and long-term ROI than deploying a smart contract on Solana in 2026. At least you know exactly what you're getting into, nobody rugs you halfway through, and the transaction fees are zero.
+>
+> Choose your time wisely. I chose wrong once. Now I'm choosing better.
+>
+> *- Mahmoud, August 2026*
+
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/wiseaidev)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![made-with-rust](https://img.shields.io/badge/Made%20with-Rust-1f425f.svg?logo=rust&logoColor=white)](https://www.rust-lang.org/)
